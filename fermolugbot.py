@@ -50,18 +50,6 @@ def fetch_image_url(query):
 
     return url
 
-def send_milf():
-    url = fetch_image_url("milf")
-    send_message(url)
-
-def send_cameltoe():
-    url = fetch_image_url("cameltoe")
-    send_message(url)
-
-def send_rustelle():
-    url = fetch_image_url("arrosticini")
-    send_message(url)
-
 def show_help():
     msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf: mostra una foto random di MILF\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n\nQuesto software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
     send_message(msg)
@@ -89,11 +77,11 @@ if __name__ == '__main__':
                 message_text = message_text[len("@FermoLUGbot "):]
 
             if message_text.startswith("/milf"):
-                send_milf()
+                send_image("milf")
             if message_text.startswith("/cameltoe"):
-                send_cameltoe()
+                send_image("cameltoe")
             if message_text.startswith("/rustelle"):
-                send_rustelle()
+                send_image("arrosticini")
             if message_text.startswith("/help"):
                 show_help()
             if message_text.startswith("/image"):
