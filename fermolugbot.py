@@ -51,7 +51,7 @@ def fetch_image_url(query):
     return url
 
 def show_help():
-    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf: mostra una foto random di MILF\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n\nQuesto software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
+    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf: mostra una foto random di MILF\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n/image <stringa>: Cerca <stringa> su google images e restituisce un risultato casuale\n/wiki <nome_pagina>: Genera un link alla pagina del wiki del LUG\n\nQuesto software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
     send_message(msg)
 
 def send_image(query):
