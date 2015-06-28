@@ -63,8 +63,12 @@ def send_rustelle():
     send_message(url)
 
 def show_help():
-    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf: mostra una foto random di MILF\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n\n Questo software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
+    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf: mostra una foto random di MILF\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n\nQuesto software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
     send_message(msg)
+
+def send_image(query):
+    url = fetch_image_url(query)
+    send_message(url)
 
 #Entry point
 if __name__ == '__main__':
@@ -91,5 +95,7 @@ if __name__ == '__main__':
                 send_rustelle()
             if message_text.startswith("/help"):
                 show_help()
+            if message_text.startswith("/image"):
+                send_image(message_text[len("/image "):])
 
         sleep(1)
