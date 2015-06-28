@@ -33,7 +33,6 @@ def do_get_request(api, params={}):
     """Perform a get request to Telegram"""
 
     r = requests.get(API_BASE + api, params)
-    print(r.text)
     return r.text
 
 def send_message(msg):
