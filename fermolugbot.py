@@ -27,12 +27,13 @@ import random
 
 BOT_VERSION = 0.1
 API_BASE = "https://api.telegram.org/bot121457064:AAG5bEZ2_8KBNYJMuY40HisuZaXluUNbmCg/"
-UPDATES_OFFSET = "184803575" #FIXME: This needs to be updated every time the bot is added to a new group
+UPDATES_OFFSET = "184803589" #FIXME: This should be retrieved during the first iteration.
 
 def do_get_request(api, params={}):
     """Perform a get request to Telegram"""
 
     r = requests.get(API_BASE + api, params)
+    print(r.text)
     return r.text
 
 def send_message(msg):
@@ -75,7 +76,10 @@ if __name__ == '__main__':
         for message in data["result"]:
             GROUP_ID = message["message"]["chat"]["id"]
             UPDATES_OFFSET = message["update_id"] + 1
-            message_text = (message["message"]["text"])
+            try:
+                message_text = (message["message"]["text"])
+            except:
+                message_text = ""
 
             if message_text.startswith("@FermoLUGbot"):
                 message_text = message_text[len("@FermoLUGbot "):]
