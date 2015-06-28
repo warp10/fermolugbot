@@ -67,8 +67,9 @@ def show_help():
     send_message(msg)
 
 def send_image(query):
-    url = fetch_image_url(query)
-    send_message(url)
+    if query:
+        url = fetch_image_url(query)
+        send_message(url)
 
 #Entry point
 if __name__ == '__main__':
