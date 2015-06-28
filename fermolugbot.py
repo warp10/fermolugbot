@@ -78,7 +78,7 @@ if __name__ == '__main__':
             try:
                 message_text = (message["message"]["text"])
             except:
-                message_text = ""
+                continue
 
             if message_text.startswith("@FermoLUGbot"):
                 message_text = message_text[len("@FermoLUGbot "):]
