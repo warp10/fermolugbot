@@ -59,6 +59,11 @@ def send_image(query):
         url = fetch_image_url(query)
         send_message(url)
 
+def send_wiki_url(query):
+    if query:
+        url = "http://wiki.linuxfm.org/doku.php?id=" + query
+        send_message(url)
+
 #Entry point
 if __name__ == '__main__':
     while True:
@@ -86,5 +91,7 @@ if __name__ == '__main__':
                 show_help()
             if message_text.startswith("/image"):
                 send_image(message_text[len("/image "):])
+            if message_text.startswith("/wiki"):
+                send_wiki_url(message_text[len("/wiki "):])
 
         sleep(1)
