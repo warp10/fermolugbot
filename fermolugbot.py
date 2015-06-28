@@ -25,7 +25,7 @@ import json
 from time import sleep
 import random
 
-
+BOT_VERSION = 0.1
 API_BASE = "https://api.telegram.org/bot121457064:AAG5bEZ2_8KBNYJMuY40HisuZaXluUNbmCg/"
 UPDATES_OFFSET = "184803575" #FIXME: This needs to be updated every time the bot is added to a new group
 
@@ -63,7 +63,7 @@ def send_rustelle():
     send_message(url)
 
 def show_help():
-    msg = """Il bot del FermoLUG\n\nComandi disponibili:\n/milf: mostra una foto random di MILF\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle"""
+    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf: mostra una foto random di MILF\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n\n Questo software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
     send_message(msg)
 
 #Entry point
