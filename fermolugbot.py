@@ -44,9 +44,13 @@ def fetch_image_url(query):
     BASE_URL = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + query + '&start=%d'
     start = random.randint(0, 60)  # Take a random number for google pagination. Max is 60.
 
-    r = requests.get(BASE_URL % start)
-    image = json.loads(r.text)['responseData']['results'][random.randint(0, 3)]  # Take a random picture out of the 4 available.
-    url = image['unescapedUrl']
+    try:
+        r = requests.get(BASE_URL % start)
+        image = json.loads(r.text)['responseData']['results'][random.randint(0, 3)]  # Take a random picture out of the 4 available.
+        url = image['unescapedUrl']
+
+    except:
+        url = ""
 
     return url
 
