@@ -87,21 +87,21 @@ if __name__ == '__main__':
             if message_text.startswith("@FermoLUGbot"):
                 message_text = message_text[len("@FermoLUGbot "):]
 
-            if message_text.startswith("/milf"):
+            if message_text.lower().startswith("/milf"):
                 try:
                     iterations = int(message_text[len("/milf "):])
                 except:
                     iterations = 1
                 send_image("milf", iterations)
-            if message_text.startswith("/cameltoe"):
+            elif message_text.lower().startswith("/cameltoe"):
                 send_image("cameltoe")
-            if message_text.startswith("/rustelle"):
+            elif message_text.lower().startswith("/rustelle"):
                 send_image("arrosticini")
-            if message_text.startswith("/help"):
+            elif message_text.lower().startswith("/help"):
                 show_help()
-            if message_text.startswith("/image"):
+            elif message_text.lower().startswith("/image"):
                 send_image(message_text[len("/image "):])
-            if message_text.startswith("/wiki"):
+            elif message_text.lower().startswith("/wiki"):
                 send_wiki_url(message_text[len("/wiki "):])
 
         sleep(1)
