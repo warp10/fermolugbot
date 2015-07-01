@@ -35,9 +35,9 @@ def do_get_request(api, params={}):
     r = requests.get(API_BASE + api, params)
     return r.text
 
-def send_message(msg):
+def send_message(msg, reply_to=""):
     """Send a message to the group the latest update came from"""
-    do_get_request("sendMessage", params={"chat_id": GROUP_ID, "text": msg})
+    do_get_request("sendMessage", params={"chat_id": GROUP_ID, "text": msg, "reply_to_message_id": reply_to})
 
 def fetch_image_url(query):
     """Download a random image from Google image search."""
@@ -103,5 +103,7 @@ if __name__ == '__main__':
                 send_image(message_text[len("/image "):])
             elif message_text.lower().startswith("/wiki"):
                 send_wiki_url(message_text[len("/wiki "):])
+            else:
+                send_message("Tsk tsk, RTFM!", reply_to=message["message"]["message_id"])
 
         sleep(1)
