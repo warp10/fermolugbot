@@ -65,18 +65,22 @@ def send_image(query, iterations=1):
         for iteration in range(iterations):
             url = fetch_image_url(query)
             send_message(url)
+    else:
+        send_message("Devi dirmi cosa cercare.", reply_to=message["message"]["message_id"])
 
 def send_wiki_url(query):
     if query:
         url = "http://wiki.linuxfm.org/doku.php?id=" + query
         send_message(url)
+    else:
+        send_message("Devi dirmi quale pagina vuoi.", reply_to=message["message"]["message_id"])
 
 def mavaff(rcpt):
     """SaaS: Sfanculator as a Service"""
     if rcpt.startswith("@") and len(rcpt) >5:
         send_message("Caro " + rcpt + ", " + message["message"]["from"]["username"] + " ti dedica questo video con affetto: https://www.youtube.com/watch?v=t5K6Kemip8U")
     else:
-        send_message("Devi dirmi chi vuoi sfanculare, riprova.", reply_to=message["message"]["message_id"])
+        send_message("Devi dirmi chi vuoi sfanculare.", reply_to=message["message"]["message_id"])
 
 #Entry point
 if __name__ == '__main__':
