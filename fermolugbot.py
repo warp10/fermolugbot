@@ -25,7 +25,7 @@ import json
 from time import sleep
 import random
 
-BOT_VERSION = 0.3
+BOT_VERSION = 0.4
 API_BASE = "https://api.telegram.org/bot121457064:AAG5bEZ2_8KBNYJMuY40HisuZaXluUNbmCg/"
 UPDATES_OFFSET = "184803589" #FIXME: This should be retrieved during the first iteration.
 
@@ -56,7 +56,7 @@ def fetch_image_url(query):
     return url
 
 def show_help():
-    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf <numero>: mostra <numero> foto random di MILF (massimo 5)\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n/image <stringa>: Cerca <stringa> su google images e restituisce un risultato casuale\n/wiki <nome_pagina>: Genera un link alla pagina del wiki del LUG\n\nQuesto software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
+    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf <numero>: mostra <numero> foto random di MILF (massimo 5)\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n/image <stringa>: Cerca <stringa> su google images e restituisce un risultato casuale\n/wiki <nome_pagina>: Genera un link alla pagina del wiki del LUG\n/braccecorte: Manda un messaggio affettuoso al prez\n/mavaff <nome>: Sfanculator as a Service\n\nQuesto software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
     send_message(msg)
 
 def send_image(query, iterations=1):
@@ -89,11 +89,10 @@ if __name__ == '__main__':
             UPDATES_OFFSET = message["update_id"] + 1
             try:
                 message_text = (message["message"]["text"])
+                if message_text.startswith("@FermoLUGbot"):
+                    message_text = message_text[len("@FermoLUGbot "):]
             except:
                 continue
-
-            if message_text.startswith("@FermoLUGbot"):
-                message_text = message_text[len("@FermoLUGbot "):]
 
             if message_text.lower().startswith("/milf"):
                 try:
