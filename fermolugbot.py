@@ -51,6 +51,7 @@ def fetch_image_url(query):
 
     except:
         url = ""
+        send_message("Nessuna immagine trovata :(", reply_to=message["message"]["message_id"])
 
     return url
 
