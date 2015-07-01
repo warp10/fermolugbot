@@ -71,6 +71,13 @@ def send_wiki_url(query):
         url = "http://wiki.linuxfm.org/doku.php?id=" + query
         send_message(url)
 
+def mavaff(rcpt):
+    """SaaS: Sfanculator as a Service"""
+    if rcpt.startswith("@") and len(rcpt) >5:
+        send_message("Caro " + rcpt + ", " + message["message"]["from"]["username"] + " ti dedica questo video con affetto: https://www.youtube.com/watch?v=t5K6Kemip8U")
+    else:
+        send_message("Devi dirmi chi vuoi sfanculare, riprova.", reply_to=message["message"]["message_id"])
+
 #Entry point
 if __name__ == '__main__':
     while True:
@@ -106,6 +113,8 @@ if __name__ == '__main__':
                 send_wiki_url(message_text[len("/wiki "):])
             elif message_text.lower().startswith("/braccecorte"):
                 send_message("@pxel_tk e cacciali 'sti cazzo di soldi!")
+            elif message_text.lower().startswith("/mavaff"):
+                mavaff(message_text[len("/mavaff "):])
             else:
                 send_message("Tsk tsk, RTFM!", reply_to=message["message"]["message_id"])
 
