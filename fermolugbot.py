@@ -41,12 +41,12 @@ def send_message(msg, reply_to=""):
 
 def fetch_image_url(query):
     """Download a random image from Google image search."""
-    BASE_URL = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + query + '&start=%d'
-    start = random.randint(0, 60)  # Take a random number for google pagination. Max is 60.
+    BASE_URL = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + query + '&start=%d&rsz=8'
+    start = random.randint(0, 56)  # Take a random number for google pagination. Max is 60.
 
     try:
         r = requests.get(BASE_URL % start)
-        image = json.loads(r.text)['responseData']['results'][random.randint(0, 3)]  # Take a random picture out of the 4 available.
+        image = json.loads(r.text)['responseData']['results'][random.randint(0, 7)]  # Take a random picture out of the 8 available.
         url = image['unescapedUrl']
 
     except:
