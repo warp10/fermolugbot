@@ -25,7 +25,7 @@ import json
 from time import sleep
 import random
 
-BOT_VERSION = 0.2
+BOT_VERSION = 0.3
 API_BASE = "https://api.telegram.org/bot121457064:AAG5bEZ2_8KBNYJMuY40HisuZaXluUNbmCg/"
 UPDATES_OFFSET = "184803589" #FIXME: This should be retrieved during the first iteration.
 
