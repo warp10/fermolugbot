@@ -42,7 +42,7 @@ def send_message(msg, reply_to=""):
 def fetch_image_url(query):
     """Download a random image from Google image search."""
     BASE_URL = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + query + '&start=%d&rsz=8'
-    start = random.randint(0, 56)  # Take a random number for google pagination. Max is 60.
+    start = random.randint(0, 56)  # Take a random number for google pagination. Max is 56 when rsz is 8.
 
     try:
         r = requests.get(BASE_URL % start)
