@@ -104,6 +104,8 @@ if __name__ == '__main__':
                 send_image(message_text[len("/image "):])
             elif message_text.lower().startswith("/wiki"):
                 send_wiki_url(message_text[len("/wiki "):])
+            elif message_text.lower().startswith("/braccecorte"):
+                send_message("@pxel_tk e cacciali 'sti cazzo di soldi!")
             else:
                 send_message("Tsk tsk, RTFM!", reply_to=message["message"]["message_id"])
 
