@@ -24,6 +24,7 @@ import requests
 import json
 from time import sleep
 import random
+import os
 
 BOT_VERSION = 0.5
 API_BASE = "https://api.telegram.org/bot121457064:AAG5bEZ2_8KBNYJMuY40HisuZaXluUNbmCg/"
@@ -33,6 +34,8 @@ def do_get_request(api, params={}):
     """Perform a get request to Telegram"""
 
     r = requests.get(API_BASE + api, params)
+    if os.environ.get("DEBUG"):
+        print(r.text)
     return r.text
 
 def send_message(msg, reply_to=""):
