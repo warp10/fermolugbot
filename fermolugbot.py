@@ -88,8 +88,11 @@ def mavaff(rcpt):
 #Entry point
 if __name__ == '__main__':
     while True:
-        updates = do_get_request("getUpdates", params={"offset": UPDATES_OFFSET})
-        data = json.loads(updates)
+        try:
+            updates = do_get_request("getUpdates", params={"offset": UPDATES_OFFSET})
+            data = json.loads(updates)
+        except:
+            continue
 
         for message in data["result"]:
             GROUP_ID = message["message"]["chat"]["id"]
