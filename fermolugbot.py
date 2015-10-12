@@ -121,7 +121,7 @@ if __name__ == '__main__':
             elif message_text.lower().startswith("/denise"):
                 send_image("Denise Milani")
             elif message_text.lower().startswith("/emily"):
-                send_image("Emily Lucia Javorcekova")
+                send_image("Emily Lucia Javorčeková")
             elif message_text.lower().startswith("/wiki"):
                 send_wiki_url(message_text[len("/wiki "):])
             elif message_text.lower().startswith("/braccecorte"):
