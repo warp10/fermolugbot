@@ -59,7 +59,7 @@ def fetch_image_url(query):
     return url
 
 def show_help():
-    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf <numero>: mostra <numero> foto random di MILF (massimo 5)\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n/image <stringa>: Cerca <stringa> su google images e restituisce un risultato casuale\n/denise: Cerca una foto di Denise Milani su Google Images\n/wiki <nome_pagina>: Genera un link alla pagina del wiki del LUG\n/braccecorte: Manda un messaggio affettuoso al prez\n/mavaff <nome>: Sfanculator as a Service\n\nQuesto software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
+    msg = """Il bot del FermoLUG - versione %s\n\nComandi disponibili:\n/milf <numero>: mostra <numero> foto random di MILF (massimo 5)\n/cameltoe: mostra una foto random di cameltoe\n/rustelle: mostra una foto random di rustelle\n/image <stringa>: Cerca <stringa> su google images e restituisce un risultato casuale\n/denise: Cerca una foto di Denise Milani su Google Images\n/emily: Cerca una foto di Emily "Ctrl+v": Lucia Javorčeková su Google Images\n/wiki <nome_pagina>: Genera un link alla pagina del wiki del LUG\n/braccecorte: Manda un messaggio affettuoso al prez\n/mavaff <nome>: Sfanculator as a Service\n\nQuesto software è Software Libero: https://github.com/warp10/fermolugbot""" % str(BOT_VERSION)
     send_message(msg)
 
 def send_image(query, iterations=1):
@@ -120,6 +120,8 @@ if __name__ == '__main__':
                 send_image(message_text[len("/image "):])
             elif message_text.lower().startswith("/denise"):
                 send_image("Denise Milani")
+            elif message_text.lower().startswith("/emily"):
+                send_image("Emily Lucia Javorcekova")
             elif message_text.lower().startswith("/wiki"):
                 send_wiki_url(message_text[len("/wiki "):])
             elif message_text.lower().startswith("/braccecorte"):
