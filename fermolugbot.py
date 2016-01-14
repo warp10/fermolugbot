@@ -127,7 +127,7 @@ if __name__ == '__main__':
             elif message_text.lower().startswith("/wiki"):
                 send_wiki_url(message_text[len("/wiki "):])
             elif message_text.lower().startswith("/braccecorte"):
-                send_message("@pxel_tk e cacciali 'sti cazzo di soldi!")
+                send_message("@pxel_tk e cacciali 'sti cardellino di soldi!")
             elif message_text.lower().startswith("/mavaff"):
                 mavaff(message_text[len("/mavaff "):])
             else:
